@@ -46,13 +46,14 @@ body {
   position: absolute;
   top: 40%;
   left: 50%;
+  text-align: center;
 
   transform: translate(-50%, -50%)
-
 }
 .primary-text {
   color: white;
   text-transform: uppercase;
+  margin-bottom: 60px;
 }
 
 .primary-text-main {
@@ -110,4 +111,72 @@ body {
     opacity: 1;
     transform: translate(0);
   }
+}
+
+@keyframes btnMoveIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  transition: all, .3s;
+  display: inline-block;
+  border-radius: 40px;
+  position: relative;
+
+  transition: all 0.4s;
+}
+
+.btn-white {
+  background-color: white;
+  color: #777;
+}
+
+
+.btn:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 40px;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .5s;
+}
+
+.btn-white::after {
+  background-color: white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: btnMoveIn .5s;
+  animation-fill-mode: backwards;
 }
